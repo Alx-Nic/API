@@ -18,11 +18,11 @@ namespace JwtAPI.Controllers
 
         [HttpPost]
         [Route("Authenticate")]
-        public IActionResult Authenticate(AuthenticateRequest model)
+        public async Task<ActionResult<string>> Authenticate(AuthenticateRequest model)
         {
             var response = _userService.Authenticate(model);
 
-            return response == null ? BadRequest() : Ok(response);
+            return response == null ? BadRequest() : Ok(response.Token);
         }
         
     }

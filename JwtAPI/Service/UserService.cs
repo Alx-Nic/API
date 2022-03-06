@@ -19,10 +19,20 @@ namespace JwtAPI.Service
             Id = new Guid("c12e0fdc-faef-4314-af77-dbeff471f38e"), 
             FirstName = "Test", 
             LastName = "Test",
-            UserName = "Test", 
-            Password = "Test",
+            UserName = "admin", 
+            Password = "admin",
             RecordState = 1,
             Role = "Admin"
+        },
+        new User
+        {
+            Id = new Guid("c12e0fdc-faef-4314-af77-dbeff471f382"),
+            FirstName = "Test",
+            LastName = "Test",
+            UserName = "user",
+            Password = "user",
+            RecordState = 1,
+            Role = "User"
         }
     };
 

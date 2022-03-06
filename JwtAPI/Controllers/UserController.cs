@@ -1,4 +1,5 @@
 ﻿using JwtAPI.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace JwtAPI.Controllers
         }
         
         [HttpGet]
-        [Helpers.Authorize]
+        [Authorize(Roles = "Admin")]
         [Route("/Users")]
         public IActionResult GetAll()
         {
