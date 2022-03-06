@@ -22,10 +22,7 @@ namespace JwtAPI.Service
         {
             var now = DateTime.UtcNow;
 
-            var nowInUnix = new DateTimeOffset(now).ToUnixTimeMilliseconds();
-            
-
-            var claims = new Claim[]
+            var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), //JTI used as a nonce to avoid replay attacks
@@ -34,8 +31,7 @@ namespace JwtAPI.Service
                 new Claim(ClaimTypes.GivenName, user.FirstName),
                 new Claim(ClaimTypes.Surname, user.LastName),
                 new Claim(ClaimTypes.Role, user.Role),
-                new Claim("id", user.Id.ToString()),
-
+                new Claim("id", user.Id.ToString())
             };
             
             var tokenHandler = new JwtSecurityTokenHandler();
